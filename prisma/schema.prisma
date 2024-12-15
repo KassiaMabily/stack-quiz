@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id        Int @id @default(autoincrement())
+  name      String
+  quizzes Quiz[]
+}
+
+model Quiz {
+  id        Int @id @default(autoincrement())
+  title     String
+  questions Question[]
+  icon      String
+  category  Category? @relation(fields: [categoryId], references: [id])
+  categoryId Int?
+}
+
+model Question {
+  id        Int @id @default(autoincrement())
+  question  String
+  quiz      Quiz @relation(fields: [quizId], references: [id])
+  quizId    Int
+  options   QuestionOption[]
+}
+
+model QuestionOption {
+  id        Int @id @default(autoincrement())
+  option    String
+  question  Question @relation(fields: [questionId], references: [id])
+  questionId Int
+  isCorrect   Boolean
+}
