@@ -10,9 +10,10 @@ export const dynamic = 'force-static';
 export default async function QuizDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const quiz = await fetchQuiz(parseInt(params.id));
+  const id = (await params).id
+  const quiz = await fetchQuiz(parseInt(id));
 
   if (!quiz) {
     notFound();
