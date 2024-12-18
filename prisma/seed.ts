@@ -24,6 +24,7 @@ async function main() {
       data: {
         title: quiz.title,
         icon: quiz.icon,
+        iconBgHex: quiz.iconBgHex,
         categoryId: quiz.category,
         questions: {
           create: quiz.questions.map((question) => ({

@@ -18,6 +18,7 @@ model Quiz {
   title     String
   questions Question[]
   icon      String
+  iconBgHex  String @default("#E0E0E0")
   category  Category? @relation(fields: [categoryId], references: [id])
   categoryId Int?
 }

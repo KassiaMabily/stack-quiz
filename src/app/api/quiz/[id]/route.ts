@@ -25,5 +25,9 @@ export async function GET(
     return NextResponse.json({ message: 'Quiz not found' }, { status: 404 });
   }
 
-  return NextResponse.json({ totalQuestions: quiz.questions.length, ...quiz });
+  return NextResponse.json<ResponseApi<QuizDetail>>({
+    data: { totalQuestions: quiz.questions.length, ...quiz },
+    message: 'Quizzes fetched',
+    status: 200,
+  });
 }

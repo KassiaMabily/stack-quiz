@@ -25,5 +25,9 @@ export async function GET(request: NextRequest) {
     },
   });
 
-  return NextResponse.json({ quizzes });
+  return NextResponse.json<ResponseApi<Quiz[]>>({
+    data: quizzes,
+    message: 'Quizzes fetched',
+    status: 200,
+  });
 }

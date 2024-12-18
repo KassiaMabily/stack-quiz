@@ -2,6 +2,7 @@ export const quizzes = [
   {
     title: 'HTML',
     icon: '/quiz-icons/icon-html.svg',
+    iconBgHex: '#FFF1E9',
     category: 1,
     questions: [
       {
@@ -224,6 +225,7 @@ export const quizzes = [
   {
     title: 'CSS',
     icon: '/quiz-icons/icon-css.svg',
+    iconBgHex: '#E0FDEF',
     category: 1,
     questions: [
       {
@@ -449,6 +451,7 @@ export const quizzes = [
   {
     title: 'JavaScript',
     icon: '/quiz-icons/icon-js.svg',
+    iconBgHex: '#EBF0FF',
     category: 1,
     questions: [
       {
@@ -670,6 +673,7 @@ export const quizzes = [
     id: 4,
     title: 'Accessibility',
     icon: '/quiz-icons/icon-accessibility.svg',
+    iconBgHex: '#F6E7FF',
     category: 1,
     questions: [
       {
