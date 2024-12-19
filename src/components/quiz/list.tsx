@@ -1,8 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { fetchQuizzes } from '@/lib/services/quizService';
 
-export const revalidate = 60 * 60 * 24; // 24 hours
-
 export async function QuizList() {
   const quizzes = await fetchQuizzes();
 
