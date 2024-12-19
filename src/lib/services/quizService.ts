@@ -1,29 +1,32 @@
-import { api } from '@/lib/axios';
+import { prisma } from "../prisma";
 
-export async function fetchQuizzes() {
-  try {
-    // console.log('Fetching quizzes data...');
-    // await new Promise((resolve) => setTimeout(resolve, 3000));
-
-    const response = await api.get<ResponseApi<Quiz[]>>('/quiz');
-
-    return response.data.data;
-  } catch (error) {
-    console.error('Error:', error);
-    throw new Error('Failed to fetch quizzes data.');
-  }
+export async function fetchQuizzes(): Promise<Quiz[]> {
+  return await prisma.quiz.findMany({
+    include: {
+      category: true,
+    },
+  });
 }
 
-export async function fetchQuiz(quizId: number) {
-  try {
-    // console.log('Fetching quizzes data...');
-    // await new Promise((resolve) => setTimeout(resolve, 3000));
+export async function fetchQuiz(id: number): Promise<QuizDetail | null> {
+  const quiz = await prisma.quiz.findUnique({
+    where: { id },
+    include: {
+      category: true,
+      questions: {
+        include: {
+          options: true,
+        },
+      },
+    },
+  });
 
-    const response = await api.get<ResponseApi<QuizDetail>>(`/quiz/${quizId}`);
-
-    return response.data.data;
-  } catch (error) {
-    console.error('Error:', error);
-    throw new Error('Failed to fetch quizzes data.');
+  if (quiz) {
+    return {
+      ...quiz,
+      totalQuestions: quiz.questions.length,
+    };
   }
+
+  return null;
 }

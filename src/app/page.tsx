@@ -1,8 +1,9 @@
-import { QuizList } from '@/components/quiz/list';
+import QuizList from '@/components/quiz/list';
 import { textVariants } from '@/components/ui/text';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { Suspense } from 'react';
 
-export default async function Home() {
+export default async function Page() {
   return (
     <div className="flex flex-col items-end md:space-y-6">
       <div className="p-6">
@@ -26,7 +27,9 @@ export default async function Home() {
             Pick a subject to get started.
           </p>
         </div>
-        <QuizList />
+        <Suspense fallback={<p>Loading...</p>}>
+          <QuizList />
+        </Suspense>
       </div>
     </div>
   );

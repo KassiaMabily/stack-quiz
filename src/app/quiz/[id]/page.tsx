@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation';
 // Renders static content for the quiz detail page when visited for the first time
 export const dynamic = 'force-static';
 
-export default async function QuizDetailPage({
+export default async function Page({
   params,
 }: {
   params: Promise<{ id: string }>;

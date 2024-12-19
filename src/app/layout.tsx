@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   description: 'Quiz app for web developers',
 };
 
+export const experimental_ppr = true;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-background bg-cover bg-no-repeat text-foreground bg-background-mobile dark:bg-background-mobile-dark md:bg-background-tablet dark:md:bg-background-tablet-dark lg:bg-background-desktop dark:lg:bg-background-desktop-dark 
+        className={`bg-background bg-cover bg-no-repeat text-foreground bg-background-mobile dark:bg-background-mobile-dark md:bg-background-tablet dark:md:bg-background-tablet-dark lg:bg-background-desktop dark:lg:bg-background-desktop-dark
         ${rubik.variable} font-sans antialiased`}
       >
         <ThemeProviderDynamic>

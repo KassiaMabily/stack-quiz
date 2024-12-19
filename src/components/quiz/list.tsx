@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { fetchQuizzes } from '@/lib/services/quizService';
 
-export async function QuizList() {
+export default async function QuizList() {
   const quizzes = await fetchQuizzes();
 
   return (
