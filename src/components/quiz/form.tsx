@@ -7,6 +7,7 @@ import { Text } from '@/components/ui/text';
 import { cn, getOptionLetter } from '@/lib/utils';
 import { Radio, RadioGroup } from '@headlessui/react';
 import { useState } from 'react';
+import { ProgressBar } from '../ui/progressbar';
 
 export function QuizForm({
   quiz,
@@ -83,7 +84,7 @@ export function QuizForm({
             {quiz.questions[currentQuestion].question}
           </Text>
         </div>
-        Progressbar
+        <ProgressBar current={currentQuestion + 1} total={quiz.totalQuestions} />
       </div>
 
       <div className="flex flex-col justify-between space-y-6">
