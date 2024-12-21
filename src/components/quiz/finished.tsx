@@ -1,12 +1,12 @@
 
 import { useEffect, useState } from 'react';
 import Confetti from 'react-confetti';
-import { initialState, QuizState } from ".";
+import { QuizState } from ".";
 import { Button } from "../ui/button";
 import { Text } from "../ui/text";
 import { QuizHeader } from "./header";
 
-export function Finished({ state, quiz, setState }: { quiz: QuizDetail, state: QuizState, setState: React.Dispatch<React.SetStateAction<QuizState>> }) {
+export function Finished({ state, quiz }: { quiz: QuizDetail, state: QuizState }) {
     const [ isConfettiActive, setIsConfettiActive ] = useState(true);
 
     useEffect(() => {
@@ -38,7 +38,7 @@ export function Finished({ state, quiz, setState }: { quiz: QuizDetail, state: Q
 
                     </div>
                 </div>
-                <Button variant={"primary"} size={"lg"} className="w-full" onClick={() => setState(initialState)} >
+                <Button variant={"primary"} size={"lg"} className="w-full" href='/' >
                     <Button.Text variant={'bodyM'}>Play again</Button.Text>
                 </Button>
             </div>

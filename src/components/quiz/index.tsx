@@ -26,7 +26,7 @@ export function Quiz({ quiz }: { quiz: QuizDetail }) {
   return (
     <Fragment>
       {state.isFinished ? (
-        <Finished state={state} setState={setState} quiz={quiz} />
+        <Finished state={state} quiz={quiz} />
       ) : (
         <QuizForm state={state} setState={setState} quiz={quiz} />
       )}

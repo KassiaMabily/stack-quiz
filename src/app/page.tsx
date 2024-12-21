@@ -1,3 +1,4 @@
+import { Loader } from '@/components/loader';
 import QuizList from '@/components/quiz/list';
 import { textVariants } from '@/components/ui/text';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
@@ -27,7 +28,7 @@ export default async function Page() {
             Pick a subject to get started.
           </p>
         </div>
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<Loader />}>
           <QuizList />
         </Suspense>
       </div>

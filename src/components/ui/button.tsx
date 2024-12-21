@@ -15,7 +15,7 @@ const buttonVariants = cva(
         outline:
           'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
-        primary: 'bg-primary text-primary-foreground hover:bg-primary/90',
+        primary: 'bg-primary text-primary-foreground',
       },
       size: {
         default: 'min-h-10 px-4 py-2',
@@ -51,7 +51,8 @@ function Button({
     return (
       <Link
         href={href}
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn("", buttonVariants({ variant, size, className }))}
+        prefetch={true}
       >
         {children}
       </Link>
@@ -59,7 +60,7 @@ function Button({
   }
   return (
     <button
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, size, className}), "transition-opacity duration-300 ease-out opacity-100 hover:opacity-50")}
       {...rest}
     >
       {children}

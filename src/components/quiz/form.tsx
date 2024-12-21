@@ -148,7 +148,8 @@ function Option({
       value={option}
       className={cn(
         buttonVariants({ variant: 'default', size: 'lg' }),
-        'group cursor-pointer focus:outline-none text-wrap',
+        'transition ease-in duration-300 ring-transparent hover:shadow-md',
+        'group cursor-pointer appearance-none focus:outline-none text-wrap',
         'data-[checked]:ring-4 data-[checked]:ring-primary',
         '[&:not([data-focus])]:[&:not([data-checked])]:ring-inset',
         showAnswer && isWrongAnswer && 'data-[checked]:ring-destructive',
@@ -162,7 +163,7 @@ function Option({
             showAnswer && isCorrectAnswer && 'bg-success',
             showAnswer && isWrongAnswer && 'bg-destructive',
             !showAnswer &&
-              ' group-hover:bg-[#F6E7FF] group-data-[checked]:bg-primary'
+              'transition-colors ease-in duration-300 group-hover:bg-[#F6E7FF] group-data-[checked]:bg-primary'
           )}
         >
           <Text
