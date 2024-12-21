@@ -1,4 +1,5 @@
 
+import { useEffect, useState } from 'react';
 import Confetti from 'react-confetti';
 import { initialState, QuizState } from ".";
 import { Button } from "../ui/button";
@@ -6,9 +7,17 @@ import { Text } from "../ui/text";
 import { QuizHeader } from "./header";
 
 export function Finished({ state, quiz, setState }: { quiz: QuizDetail, state: QuizState, setState: React.Dispatch<React.SetStateAction<QuizState>> }) {
+    const [ isConfettiActive, setIsConfettiActive ] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsConfettiActive(false);
+        }, 5000);
+    }, []);
+
     return  (
          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 w-full p-6 ">
-            <Confetti />
+            <Confetti numberOfPieces={isConfettiActive ? 200 : 0} />
             <div>
                 <Text variant={"titleS"} asChild>
                     <h1>Quiz completed</h1>
