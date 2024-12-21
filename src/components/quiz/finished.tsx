@@ -1,3 +1,5 @@
+
+import Confetti from 'react-confetti';
 import { initialState, QuizState } from ".";
 import { Button } from "../ui/button";
 import { Text } from "../ui/text";
@@ -6,6 +8,7 @@ import { QuizHeader } from "./header";
 export function Finished({ state, quiz, setState }: { quiz: QuizDetail, state: QuizState, setState: React.Dispatch<React.SetStateAction<QuizState>> }) {
     return  (
          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 w-full p-6 ">
+            <Confetti />
             <div>
                 <Text variant={"titleS"} asChild>
                     <h1>Quiz completed</h1>
