@@ -1,3 +1,4 @@
+import { Footer } from '@/components/footer';
 import { ThemeProviderDynamic } from '@/lib/dynamic';
 import type { Metadata } from 'next';
 import { Rubik } from 'next/font/google';
@@ -32,6 +33,7 @@ export default function RootLayout({
         <ThemeProviderDynamic>
           <main className="h-screen max-h-screen mx-auto lg:max-w-7xl pt-0 md:pt-16 xl:pt-24">
             {children}
+            <Footer />
           </main>
         </ThemeProviderDynamic>
       </body>

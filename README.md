@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+    <img src=".github/logo.png" alt="Stack quiz logo" height="50" width="50" />
+    <h1>Stack quiz</h1>
+</div>
 
-## Getting Started
+<img src=".github/preview.jpg" alt="Stack Quiz" />
 
-First, run the development server:
+## 💻 Overview
+A quiz application that allows you to test your knowledge in technology.
+
+This is a solution to the [Frontend quiz app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/frontend-quiz-app-BE7xkzXQnU). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+
+
+## ✅ Features
+
+- [x] 📝 Select a quiz subject
+- [x] 🎯 Select a single answer from each question from a choice of four
+- [x] 🚫 See an error message when trying to submit an answer without making a selection
+- [x] ✔  See if they have made a correct or incorrect choice when they submit an answer
+- [x] 👉 Move on to the next question after seeing the question result
+- [x] 🎉 See a completed state with the score after the final question
+- [x] 🔁 Play again to choose another subject
+- [x] 📱 View the optimal layout for the interface depending on their device's screen size
+- [x] 👀 See hover and focus states for all interactive elements on the page
+- [x] 🎮 Navigate the entire app only using their keyboard
+- [x] 🌙 Change the app's theme between light and dark
+
+## 👉 Run project
+
+### Prerequisites
+
+Ensure you have the following installed on your system:
+
+- Node.js (LTS version recommended)
+- pnpm
+
+#### Setup and Run
+
+1. Clone the Repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+$ git clone https://github.com/KassiaMabily/stack-quiz
+$ cd stack-quiz
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+$ cp .env.example .env
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Install Dependencies
 
-## Learn More
+```bash
+$ pnpm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Run the App
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+$ pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👥 Author
 
-## Deploy on Vercel
+<div align="center">
+  <small>Kassia Fraga - Dezembro/2024</small>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[![Instagram Badge](https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/kassia.mabily/)
+[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kassia-fraga/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+</div>
+
+## Attribution
+
+- [Frontend Mentor](https://www.frontendmentor.io/challenges)
+- [Icons made by meaicon](https://www.flaticon.com/authors/meaicon)
