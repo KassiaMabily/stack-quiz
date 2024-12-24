@@ -2,7 +2,6 @@ import { Text } from '@/components/ui/text';
 import { classNames, cn } from '@/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import Image, { ImageProps } from 'next/image';
-import Link from 'next/link';
 import { ButtonHTMLAttributes } from 'react';
 
 const buttonVariants = cva(
@@ -36,28 +35,15 @@ const buttonVariants = cva(
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants> & {
     isLoading?: boolean;
-    href?: string;
   };
 
 function Button({
   children,
-  href,
   variant,
   size,
   className,
   ...rest
 }: ButtonProps) {
-  if (href) {
-    return (
-      <Link
-        href={href}
-        className={cn("", buttonVariants({ variant, size, className }))}
-        prefetch={true}
-      >
-        {children}
-      </Link>
-    );
-  }
   return (
     <button
       className={cn(buttonVariants({ variant, size, className}), "transition-opacity duration-300 ease-out opacity-100 hover:opacity-50")}

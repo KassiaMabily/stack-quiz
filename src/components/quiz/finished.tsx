@@ -1,8 +1,10 @@
 
+import { cn } from '@/lib/utils';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Confetti from 'react-confetti';
 import { QuizState } from ".";
-import { Button } from "../ui/button";
+import { buttonVariants } from "../ui/button";
 import { Text } from "../ui/text";
 import { QuizHeader } from "./header";
 
@@ -38,9 +40,9 @@ export function Finished({ state, quiz }: { quiz: QuizDetail, state: QuizState }
 
                     </div>
                 </div>
-                <Button variant={"primary"} size={"lg"} className="w-full" href='/' >
-                    <Button.Text variant={'bodyM'}>Play again</Button.Text>
-                </Button>
+                <Link className={cn(buttonVariants({ variant: "primary", size: "lg" }), "w-full")} href='/' >
+                    <Text variant={'bodyM'}>Play again</Text>
+                </Link>
             </div>
          </div>
     )
