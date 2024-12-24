@@ -141,7 +141,7 @@ function Option({
 }) {
   const isWrongAnswer = option.id === pickedOption?.id && !option.isCorrect;
   const isCorrectAnswer = option.id === pickedOption?.id && option.isCorrect;
-
+  const letterOptionLabel = typeof getOptionLetter(position) === 'string' ? getOptionLetter(position) as string : ''
   return (
     <Radio
       key={option.option}
@@ -170,7 +170,7 @@ function Option({
             variant={'bodyM'}
             className="uppercase text-navy-gray dark:text-navy-grey group-hover:text-primary group-data-[checked]:text-white"
           >
-            {getOptionLetter(position)}
+            {letterOptionLabel}
           </Text>
         </div>
         <Text variant={'bodyM'} className="flex-1">
