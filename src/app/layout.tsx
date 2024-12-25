@@ -12,9 +12,13 @@ const rubik = Rubik({
   style: ['normal', 'italic'],
 });
 
+
 export const metadata: Metadata = {
-  title: 'StackQuiz App',
-  description: 'Quiz app for web developers',
+  title: {
+    template: '%s | StackQuiz App',
+    default: 'StackQuiz App',
+  },
+  description: 'Quiz app for developers',
 };
 
 export const experimental_ppr = true;
