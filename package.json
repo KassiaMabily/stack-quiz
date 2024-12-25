@@ -21,6 +21,7 @@
     "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "motion": "^11.15.0",
     "next": "15.1.1-canary.13",
     "prisma": "^6.1.0",
     "react": "^19.0.0",

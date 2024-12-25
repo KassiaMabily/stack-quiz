@@ -6,7 +6,8 @@ import { Icon } from '@/components/ui/icon';
 import { Text } from '@/components/ui/text';
 import { cn, getOptionLetter } from '@/lib/utils';
 import { Radio, RadioGroup } from '@headlessui/react';
-import { useState } from 'react';
+import { useAnimate } from 'motion/react';
+import { useEffect, useState } from 'react';
 import { ProgressBar } from '../ui/progressbar';
 
 export function QuizForm({
@@ -22,6 +23,7 @@ export function QuizForm({
   const { currentQuestion, isSubmitted, pickedOption } = state;
   const options = quiz.questions[currentQuestion].options;
   const lastQuestion = currentQuestion === quiz.totalQuestions - 1;
+  const [scope, animate] = useAnimate()
 
   const handleOptionPick = (option: QuestionOption) => {
     if(isSubmitted) return;
@@ -70,10 +72,18 @@ export function QuizForm({
     setState((prevState) => ({ ...prevState, isSubmitted: true }));
   };
 
+  useEffect(() => {
+    animate(scope.current, { opacity: 0, x: 100 }, { duration: 0.2 }).then(() => {
+      animate(scope.current, { opacity: 1, x: 0 }, { duration: 0.4, x: { type: "spring", visualDuration: 0.4 } });
+    });
+  }, [currentQuestion, animate, scope]);
+
+
   return (
     <form
       className="flex-1 grid grid-cols-1 gap-10 lg:grid-cols-2 w-full p-6 "
       onSubmit={handleSubmit}
+      ref={scope}
     >
       <div className="flex flex-col justify-between">
         <div className="flex flex-col space-y-3">
