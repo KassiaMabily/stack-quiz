@@ -1,7 +1,9 @@
 import { Footer } from '@/components/footer';
+import i18nConfig from '@/i18nConfig';
 import { ThemeProviderDynamic } from '@/lib/dynamic';
 import type { Metadata } from 'next';
 import { Rubik } from 'next/font/google';
+import { notFound } from 'next/navigation';
 import './globals.css';
 
 const rubik = Rubik({
@@ -12,6 +14,7 @@ const rubik = Rubik({
   style: ['normal', 'italic'],
 });
 
+const metadataBase = new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000");
 
 export const metadata: Metadata = {
   title: {
@@ -19,15 +22,27 @@ export const metadata: Metadata = {
     default: 'StackQuiz App',
   },
   description: 'Quiz app for developers',
+  metadataBase
 };
 
 export const experimental_ppr = true;
 
-export default function RootLayout({
-  children,
+export function generateStaticParams() {
+  return i18nConfig.locales.map(locale => ({ locale }));
+}
+
+export default async function RootLayout({
+  children, params
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode,
+  params:  Promise<{ locale: string }>
 }>) {
+  const { locale } = await params;
+
+  if (!i18nConfig.locales.includes(locale)) {
+    notFound();
+  }
+
   return (
     <html lang="en">
       <body

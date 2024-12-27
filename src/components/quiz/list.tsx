@@ -1,10 +1,14 @@
 import { Button, buttonVariants } from '@/components/ui/button';
-import { fetchQuizzes } from '@/lib/services/quizService';
+import { fetchQuizzesByLanguage } from '@/lib/services/quizService';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
 export default async function QuizList() {
-  const quizzes = await fetchQuizzes();
+  const quizzes = await fetchQuizzesByLanguage('en');
+
+  if (!quizzes) {
+    throw new Error('Failed to fetch quizzes');
+  }
 
   return (
     <ul className="flex flex-col space-y-6 p-2 text-6xl overflow-y-auto">

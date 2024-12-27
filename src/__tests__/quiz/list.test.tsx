@@ -1,5 +1,5 @@
 import QuizList from '@/components/quiz/list';
-import { fetchQuizzes } from '@/lib/services/quizService';
+import { fetchQuizzesByLanguage } from '@/lib/services/quizService';
 import { act, render, screen } from '@testing-library/react';
 
 jest.mock('@/lib/services/quizService');
@@ -23,7 +23,7 @@ const mockQuizzes = [
 
 describe('QuizList', () => {
     beforeEach(() => {
-        (fetchQuizzes as jest.Mock).mockResolvedValue(mockQuizzes);
+        (fetchQuizzesByLanguage as jest.Mock).mockResolvedValue(mockQuizzes);
     });
 
     it('renders a list of quizzes', async () => {
