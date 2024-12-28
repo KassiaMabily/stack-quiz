@@ -7,8 +7,6 @@ import { fetchQuiz } from '@/lib/services/quizService';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-// Renders static content for the quiz detail page when visited for the first time
-export const dynamic = 'force-static';
 const i18nNamespaces = ['quiz'];
 
 type Props = {
@@ -16,7 +14,9 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id, locale } = await params;
+  const id = (await params).id;
+  const locale = (await params).locale;
+
   const quiz = await fetchQuiz(parseInt(id), locale);
 
   if (!quiz) {

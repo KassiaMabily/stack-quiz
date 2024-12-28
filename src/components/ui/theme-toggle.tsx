@@ -4,7 +4,7 @@ import { Icon } from '@/components/ui/icon';
 import { useTheme } from '@/contexts/ThemeContext';
 import { classNames } from '@/lib/utils';
 import { Switch } from '@headlessui/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -14,6 +14,10 @@ export function ThemeToggle() {
     setTheme(enabled ? 'dark' : 'light');
     setEnabled(enabled);
   };
+
+  useEffect(() => {
+    setEnabled(theme == 'dark');
+  }, [theme]);
 
   return (
     <div className="inline-flex items-center space-x-4">
