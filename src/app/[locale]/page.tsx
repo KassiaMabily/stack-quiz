@@ -1,7 +1,7 @@
 import LanguageChanger from '@/components/languague-changer';
-import { Loader } from '@/components/loader';
 import { Logo } from '@/components/logo';
 import QuizList from '@/components/quiz/list';
+import { QuizListSkeleton } from '@/components/quiz/quizzesSkeleton';
 import TranslationsProvider from '@/components/translations-provider';
 import { textVariants } from '@/components/ui/text';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
@@ -47,7 +47,7 @@ export default async function Page(props: {
               {t('legend')}
             </p>
           </div>
-          <Suspense fallback={<Loader />}>
+          <Suspense fallback={<QuizListSkeleton />}>
             <QuizList locale={locale} />
           </Suspense>
         </div>

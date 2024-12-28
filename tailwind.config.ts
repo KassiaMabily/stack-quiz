@@ -54,6 +54,13 @@ export default {
           "url('/patterns/pattern-background-tablet-dark.svg')",
       },
     },
+    keyframes: {
+      shimmer: {
+        '100%': {
+          transform: 'translateX(100%)',
+        },
+      },
+    },
   },
   plugins: [],
 } satisfies Config;
