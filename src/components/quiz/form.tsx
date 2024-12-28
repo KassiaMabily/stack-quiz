@@ -8,6 +8,7 @@ import { cn, getOptionLetter } from '@/lib/utils';
 import { Radio, RadioGroup } from '@headlessui/react';
 import { useAnimate } from 'motion/react';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ProgressBar } from '../ui/progressbar';
 
 export function QuizForm({
@@ -19,18 +20,18 @@ export function QuizForm({
   state: QuizState;
   setState: React.Dispatch<React.SetStateAction<QuizState>>;
 }) {
-  const [ showError, setShowError ] = useState<boolean>(false);
+  const { t } = useTranslation();
+  const [showError, setShowError] = useState<boolean>(false);
   const { currentQuestion, isSubmitted, pickedOption } = state;
   const options = quiz.questions[currentQuestion].options;
   const lastQuestion = currentQuestion === quiz.totalQuestions - 1;
-  const [scope, animate] = useAnimate()
+  const [scope, animate] = useAnimate();
 
   const handleOptionPick = (option: QuestionOption) => {
-    if(isSubmitted) return;
+    if (isSubmitted) return;
 
     setState({ ...state, pickedOption: option });
-  }
-
+  };
 
   const handleNextQuestion = () => {
     if (lastQuestion) return;
@@ -73,11 +74,16 @@ export function QuizForm({
   };
 
   useEffect(() => {
-    animate(scope.current, { opacity: 0, x: 100 }, { duration: 0.2 }).then(() => {
-      animate(scope.current, { opacity: 1, x: 0 }, { duration: 0.4, x: { type: "spring", visualDuration: 0.4 } });
-    });
+    animate(scope.current, { opacity: 0, x: 100 }, { duration: 0.2 }).then(
+      () => {
+        animate(
+          scope.current,
+          { opacity: 1, x: 0 },
+          { duration: 0.4, x: { type: 'spring', visualDuration: 0.4 } }
+        );
+      }
+    );
   }, [currentQuestion, animate, scope]);
-
 
   return (
     <form
@@ -88,13 +94,17 @@ export function QuizForm({
       <div className="flex flex-col justify-between">
         <div className="flex flex-col space-y-3">
           <Text variant={'default'} className="italic">
-            Question {currentQuestion + 1} of {quiz.totalQuestions}
+            {t('header.question')} {currentQuestion + 1} {t('header.of')}{' '}
+            {quiz.totalQuestions}
           </Text>
           <Text variant={'headingM'}>
             {quiz.questions[currentQuestion].question}
           </Text>
         </div>
-        <ProgressBar current={currentQuestion + 1} total={quiz.totalQuestions} />
+        <ProgressBar
+          current={currentQuestion + 1}
+          total={quiz.totalQuestions}
+        />
       </div>
 
       <div className="flex flex-col justify-between space-y-6">
@@ -115,24 +125,20 @@ export function QuizForm({
           ))}
         </RadioGroup>
 
-        <Button
-          type="submit"
-          variant={'primary'}
-          size={'lg'}
-          className="py-5"
-        >
+        <Button type="submit" variant={'primary'} size={'lg'} className="py-5">
           <Button.Text variant={'bodyM'}>
-            {isSubmitted ? 'Next Question' : 'Submit answer'}
+            {isSubmitted ? t('next_question') : t('submit_answer')}
           </Button.Text>
         </Button>
 
-        {
-          showError && (
-            <Text variant={'bodyM'} className="flex items-center justify-center text-destructive dark:text-destructive">
-              <Icon name='error' className='mr-2' size='xl' /> Please select an option
-            </Text>
-          )
-        }
+        {showError && (
+          <Text
+            variant={'bodyM'}
+            className="flex items-center justify-center text-destructive dark:text-destructive"
+          >
+            <Icon name="error" className="mr-2" size="xl" /> {t('error')}
+          </Text>
+        )}
       </div>
     </form>
   );
@@ -151,7 +157,10 @@ function Option({
 }) {
   const isWrongAnswer = option.id === pickedOption?.id && !option.isCorrect;
   const isCorrectAnswer = option.id === pickedOption?.id && option.isCorrect;
-  const letterOptionLabel = typeof getOptionLetter(position) === 'string' ? getOptionLetter(position) as string : ''
+  const letterOptionLabel =
+    typeof getOptionLetter(position) === 'string'
+      ? (getOptionLetter(position) as string)
+      : '';
   return (
     <Radio
       key={option.option}
@@ -187,9 +196,9 @@ function Option({
           {option.option}
         </Text>
 
-        {showAnswer && option.isCorrect && <Icon name={'correct'} size='xl'/>}
+        {showAnswer && option.isCorrect && <Icon name={'correct'} size="xl" />}
 
-        {showAnswer && isWrongAnswer && <Icon name={'incorrect'} size='xl'/>}
+        {showAnswer && isWrongAnswer && <Icon name={'incorrect'} size="xl" />}
       </div>
     </Radio>
   );

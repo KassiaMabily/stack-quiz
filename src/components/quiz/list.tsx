@@ -3,8 +3,8 @@ import { fetchQuizzesByLanguage } from '@/lib/services/quizService';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
-export default async function QuizList() {
-  const quizzes = await fetchQuizzesByLanguage('en');
+export default async function QuizList({ locale }: { locale: string }) {
+  const quizzes = await fetchQuizzesByLanguage(locale);
 
   if (!quizzes) {
     throw new Error('Failed to fetch quizzes');
@@ -13,12 +13,15 @@ export default async function QuizList() {
   return (
     <ul className="flex flex-col space-y-6 p-2 text-6xl overflow-y-auto">
       {quizzes.map((quiz, index) => (
-        <li key={quiz.id} role='listitem'>
+        <li key={quiz.id} role="listitem">
           <Link
-            className={cn(buttonVariants({ variant: 'default', size: 'md'}), "w-full transition-shadow duration-300 ease-in shadow-sm hover:shadow-md")}
+            className={cn(
+              buttonVariants({ variant: 'default', size: 'md' }),
+              'w-full transition-shadow duration-300 ease-in shadow-sm hover:shadow-md'
+            )}
             href={`/quiz/${quiz.id}`}
             tabIndex={index}
-            role='link'
+            role="link"
             aria-label={quiz.title}
             prefetch
           >

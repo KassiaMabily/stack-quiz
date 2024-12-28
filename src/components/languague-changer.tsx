@@ -3,10 +3,10 @@
 import i18nConfig from '@/i18nConfig';
 import { usePathname, useRouter } from 'next/navigation';
 import { ChangeEvent } from 'react';
+import { ChevronDown } from 'react-feather';
 import { useTranslation } from 'react-i18next';
 
-export default function LanguageChanger({ languageOptions }: {
-  languageOptions: {code: string, name: string }[] }) {
+export default function LanguageChanger() {
   const { i18n } = useTranslation();
   const currentLocale = i18n.language;
   const router = useRouter();
@@ -38,21 +38,19 @@ export default function LanguageChanger({ languageOptions }: {
   };
 
   return (
-    <select onChange={handleChange} value={currentLocale}>
-      {languageOptions.map((option) => (
-        <option key={option.code} value={option.code}>
-          {option.code}
-        </option>
-      ))}
-      <optgroup label="Solicitar idioma">
-        {
-          availableLocales
-            .filter((locale) => !languageOptions.some((option) => option.code === locale))
-            .map((locale) => (
-            <option key={locale} value={locale}>{locale}</option>
-          ))
-        }
-      </optgroup>
-    </select>
+    <div className="mt-2 grid grid-cols-1">
+      <select
+        onChange={handleChange}
+        value={currentLocale}
+        className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-secondary py-1.5 pl-3 pr-8 text-base text-secondary-foreground outline outline-1 outline-bluish focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6"
+      >
+        {availableLocales.map((locale) => (
+          <option key={locale} value={locale}>
+            {locale}
+          </option>
+        ))}
+      </select>
+      <ChevronDown className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-secondary-foreground sm:size-4" />
+    </div>
   );
 }

@@ -1,0 +1,14 @@
+{
+  "submit_answer": "Salvar resposta",
+  "next_question": "Próxima pergunta",
+  "error": "Você deve selecionar uma resposta",
+  "header": {
+    "question": "Questão",
+    "of": "de"
+  },
+  "finished": {
+    "title": "Quiz concluído",
+    "description": "Sua pontuação...",
+    "button": "Jogar novamente"
+  }
+}

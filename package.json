@@ -21,6 +21,7 @@
     "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "feather-icons": "^4.29.2",
     "i18next": "^24.2.0",
     "i18next-resources-to-backend": "^1.2.1",
     "motion": "^11.15.0",
@@ -30,6 +31,7 @@
     "react": "^19.0.0",
     "react-confetti": "^6.1.0",
     "react-dom": "^19.0.0",
+    "react-feather": "^2.0.10",
     "react-i18next": "^15.2.0",
     "tailwind-merge": "^2.5.5"
   },

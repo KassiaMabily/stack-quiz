@@ -14,7 +14,9 @@ const rubik = Rubik({
   style: ['normal', 'italic'],
 });
 
-const metadataBase = new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000");
+const metadataBase = new URL(
+  process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+);
 
 export const metadata: Metadata = {
   title: {
@@ -22,20 +24,21 @@ export const metadata: Metadata = {
     default: 'StackQuiz App',
   },
   description: 'Quiz app for developers',
-  metadataBase
+  metadataBase,
 };
 
 export const experimental_ppr = true;
 
 export function generateStaticParams() {
-  return i18nConfig.locales.map(locale => ({ locale }));
+  return i18nConfig.locales.map((locale) => ({ locale }));
 }
 
 export default async function RootLayout({
-  children, params
+  children,
+  params,
 }: Readonly<{
-  children: React.ReactNode,
-  params:  Promise<{ locale: string }>
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
 

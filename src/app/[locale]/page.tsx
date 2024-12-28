@@ -5,17 +5,17 @@ import QuizList from '@/components/quiz/list';
 import TranslationsProvider from '@/components/translations-provider';
 import { textVariants } from '@/components/ui/text';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
-import { fetchLanguages } from '@/lib/services/languageService';
 import { cn } from '@/lib/utils';
 import { Suspense } from 'react';
 import initTranslations from '../i18n';
 
 const i18nNamespaces = ['home'];
 
-export default async function Page(props: { params: Promise<{ locale: string }> }) {
+export default async function Page(props: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await props.params;
   const { t, resources } = await initTranslations(locale, i18nNamespaces);
-  const languages = await fetchLanguages();
 
   return (
     <TranslationsProvider
@@ -23,29 +23,32 @@ export default async function Page(props: { params: Promise<{ locale: string }> 
       locale={locale}
       resources={resources}
     >
-      <div className="flex flex-col items-end md:space-y-6">
-        <div className="p-6">
-          <LanguageChanger languageOptions={languages} />
+      <div className="flex flex-col md:space-y-6">
+        <div className="p-6 flex items-center justify-between">
+          <LanguageChanger />
           <ThemeToggle />
         </div>
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 w-full p-6">
           <div>
             <h1 className={textVariants({ variant: 'titleS' })}>
-              {t("greeting")}<br />{' '}
-              <Logo />
+              {t('greeting')}
+              <br /> <Logo />
             </h1>
             <p
-              className={cn("my-2", textVariants({
-                variant: 'default',
-                className: 'italic',
-              }))}
+              className={cn(
+                'my-2',
+                textVariants({
+                  variant: 'default',
+                  className: 'italic',
+                })
+              )}
             >
-              {t("legend")}
+              {t('legend')}
             </p>
           </div>
           <Suspense fallback={<Loader />}>
-            <QuizList />
+            <QuizList locale={locale} />
           </Suspense>
         </div>
       </div>
