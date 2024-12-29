@@ -24,13 +24,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     notFound();
   }
 
+  const title = `${quiz.title} Quiz`;
+  const description = `Test your knowledge with our ${quiz.title} quiz. Interactive questions and immediate feedback!`;
+
   return {
-    title: 'Stack Quiz',
-    description: quiz.title,
+    title,
+    description,
     openGraph: {
-      title: 'Stack Quiz',
-      description: quiz.title,
-      images: [{ url: quiz.icon }],
+      title,
+      description,
+      images: [
+        {
+          url: quiz.icon,
+          width: 1200,
+          height: 630,
+          alt: `${quiz.title} Quiz Cover Image`,
+        },
+      ],
+      locale: lang,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [quiz.icon],
     },
   };
 }
