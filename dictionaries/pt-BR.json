@@ -1,0 +1,20 @@
+{
+  "HomePage": {
+    "greeting": "Bem-vindo ao",
+    "legend": "Escolha um assunto para comecar."
+  },
+  "QuizPage": {
+    "submit_answer": "Salvar resposta",
+    "next_question": "Próxima pergunta",
+    "error": " você deve selecionar uma resposta",
+    "header": {
+      "question": "Questão",
+      "of": "de"
+    },
+    "finished": {
+      "title": "Quiz concluído",
+      "description": "Sua pontuação...",
+      "button": "Jogar novamente"
+    }
+  }
+}

@@ -7,8 +7,9 @@ import { Text } from '@/components/ui/text';
 import { cn, getOptionLetter } from '@/lib/utils';
 import { Radio, RadioGroup } from '@headlessui/react';
 import { useAnimate } from 'motion/react';
+import * as motion from 'motion/react-client';
+import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { ProgressBar } from '../ui/progressbar';
 
 export function QuizForm({
@@ -20,7 +21,7 @@ export function QuizForm({
   state: QuizState;
   setState: React.Dispatch<React.SetStateAction<QuizState>>;
 }) {
-  const { t } = useTranslation();
+  const t = useTranslations('QuizPage');
   const [showError, setShowError] = useState<boolean>(false);
   const { currentQuestion, isSubmitted, pickedOption } = state;
   const options = quiz.questions[currentQuestion].options;
@@ -94,7 +95,7 @@ export function QuizForm({
       <div className="flex flex-col justify-between">
         <div className="flex flex-col space-y-3">
           <Text variant={'default'} className="italic">
-            {t('header.question')} {currentQuestion + 1} {t('header.of')}{' '}
+            {t('header.question')} {currentQuestion + 1} {t('header.of')}
             {quiz.totalQuestions}
           </Text>
           <Text variant={'headingM'}>
@@ -127,7 +128,7 @@ export function QuizForm({
 
         <Button type="submit" variant={'primary'} size={'lg'} className="py-5">
           <Button.Text variant={'bodyM'}>
-            {isSubmitted ? t('next_question') : t('submit_answer')}
+            {isSubmitted ? t('submit_answer') : t('submit_answer')}
           </Button.Text>
         </Button>
 
@@ -162,44 +163,48 @@ function Option({
       ? (getOptionLetter(position) as string)
       : '';
   return (
-    <Radio
-      key={option.option}
-      value={option}
-      className={cn(
-        buttonVariants({ variant: 'default', size: 'lg' }),
-        'transition ease-in duration-300 ring-transparent hover:shadow-md',
-        'group cursor-pointer appearance-none focus:outline-none text-wrap',
-        'data-[checked]:ring-4 data-[checked]:ring-primary',
-        '[&:not([data-focus])]:[&:not([data-checked])]:ring-inset',
-        showAnswer && isWrongAnswer && 'data-[checked]:ring-destructive',
-        showAnswer && isCorrectAnswer && 'data-[checked]:ring-success'
-      )}
-    >
-      <div className="flex items-center space-x-8  w-full">
-        <div
-          className={cn(
-            'flex items-center justify-center rounded-lg bg-navy-light h-14 w-14',
-            showAnswer && isCorrectAnswer && 'bg-success',
-            showAnswer && isWrongAnswer && 'bg-destructive',
-            !showAnswer &&
-              'transition-colors ease-in duration-300 group-hover:bg-[#F6E7FF] group-data-[checked]:bg-primary'
-          )}
-        >
-          <Text
-            variant={'bodyM'}
-            className="uppercase text-navy-gray dark:text-navy-grey group-hover:text-primary group-data-[checked]:text-white"
+    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.8 }}>
+      <Radio
+        key={option.option}
+        value={option}
+        className={cn(
+          buttonVariants({ variant: 'default', size: 'lg' }),
+          'transition ease-in duration-150 ring-transparent hover:shadow-md',
+          'group cursor-pointer appearance-none focus:outline-none text-wrap',
+          'data-[checked]:ring-4 data-[checked]:ring-primary',
+          '[&:not([data-focus])]:[&:not([data-checked])]:ring-inset',
+          showAnswer && isWrongAnswer && 'data-[checked]:ring-destructive',
+          showAnswer && isCorrectAnswer && 'data-[checked]:ring-success'
+        )}
+      >
+        <div className="flex items-center space-x-8  w-full">
+          <div
+            className={cn(
+              'flex items-center justify-center rounded-lg bg-navy-light h-14 w-14',
+              showAnswer && isCorrectAnswer && 'bg-success',
+              showAnswer && isWrongAnswer && 'bg-destructive',
+              !showAnswer &&
+                'transition-colors ease-in duration-150 group-hover:bg-[#F6E7FF] group-data-[checked]:bg-primary'
+            )}
           >
-            {letterOptionLabel}
+            <Text
+              variant={'bodyM'}
+              className="uppercase text-navy-gray dark:text-navy-grey group-hover:text-primary group-data-[checked]:text-white"
+            >
+              {letterOptionLabel}
+            </Text>
+          </div>
+          <Text variant={'bodyM'} className="flex-1">
+            {option.option}
           </Text>
+
+          {showAnswer && option.isCorrect && (
+            <Icon name={'correct'} size="xl" />
+          )}
+
+          {showAnswer && isWrongAnswer && <Icon name={'incorrect'} size="xl" />}
         </div>
-        <Text variant={'bodyM'} className="flex-1">
-          {option.option}
-        </Text>
-
-        {showAnswer && option.isCorrect && <Icon name={'correct'} size="xl" />}
-
-        {showAnswer && isWrongAnswer && <Icon name={'incorrect'} size="xl" />}
-      </div>
-    </Radio>
+      </Radio>
+    </motion.div>
   );
 }

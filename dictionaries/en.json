@@ -1,0 +1,20 @@
+{
+  "HomePage": {
+    "greeting": "Welcome to the",
+    "legend": "Pick a subject to get started."
+  },
+  "QuizPage": {
+    "submit_answer": "Submit Answer",
+    "next_question": "Next Question",
+    "error": "You must select an answer",
+    "header": {
+      "question": "Question",
+      "of": "of"
+    },
+    "finished": {
+      "title": "Quiz completed",
+      "description": "Your scored...",
+      "button": "Play again"
+    }
+  }
+}

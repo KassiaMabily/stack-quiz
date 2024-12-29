@@ -3,8 +3,8 @@ import { fetchQuizzesByLanguage } from '@/lib/services/quizService';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
-export default async function QuizList({ locale }: { locale: string }) {
-  const quizzes = await fetchQuizzesByLanguage(locale);
+export default async function QuizList({ lang }: { lang: string }) {
+  const quizzes = await fetchQuizzesByLanguage(lang);
 
   if (!quizzes) {
     throw new Error('Failed to fetch quizzes');
@@ -19,7 +19,7 @@ export default async function QuizList({ locale }: { locale: string }) {
               buttonVariants({ variant: 'default', size: 'md' }),
               'w-full transition-shadow duration-300 ease-in shadow-sm hover:shadow-md'
             )}
-            href={`/quiz/${quiz.id}`}
+            href={`/${lang}/quiz/${quiz.id}`}
             tabIndex={index}
             role="link"
             aria-label={quiz.title}

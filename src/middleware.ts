@@ -1,12 +1,9 @@
-import { i18nRouter } from 'next-i18n-router';
-import { NextRequest } from 'next/server';
-import i18nConfig from './i18nConfig';
+import createMiddleware from 'next-intl/middleware';
+import { routing } from './i18n/routing';
 
-export function middleware(request: NextRequest) {
-    return i18nRouter(request, i18nConfig);
-}
+export default createMiddleware(routing);
 
-// only applies this middleware to files in the app directory
 export const config = {
-    matcher: '/((?!api|static|.*\\..*|_next).*)'
+  // Match only internationalized pathnames
+  matcher: ['/', '/(pt-BR|en)/:path*'],
 };

@@ -1,10 +1,10 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Confetti from 'react-confetti';
-import { useTranslation } from 'react-i18next';
 import { QuizState } from '.';
 import { buttonVariants } from '../ui/button';
 import { Text } from '../ui/text';
@@ -18,7 +18,7 @@ export function Finished({
   state: QuizState;
 }) {
   const [isConfettiActive, setIsConfettiActive] = useState(true);
-  const { t } = useTranslation();
+  const t = useTranslations('QuizPage');
 
   useEffect(() => {
     setTimeout(() => {

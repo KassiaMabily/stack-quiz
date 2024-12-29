@@ -1,5 +1,30 @@
 import { prisma } from '../prisma';
 
+export async function fetchAllQuizzes() {
+  return await prisma.quiz
+    .findMany({
+      include: {
+        translations: {
+          select: {
+            language: {
+              select: {
+                code: true,
+              },
+            },
+          },
+        },
+      },
+    })
+    .then((quizzes) =>
+      quizzes.flatMap((quiz) =>
+        quiz.translations.map((translation) => ({
+          id: quiz.id,
+          locale: translation.language.code,
+        }))
+      )
+    );
+}
+
 export async function fetchQuizzesByLanguage(
   languageCode: string = 'en'
 ): Promise<Quiz[] | []> {

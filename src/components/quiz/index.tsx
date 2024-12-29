@@ -18,7 +18,7 @@ export const initialState: QuizState = {
   totalScore: 0,
   isSubmitted: false,
   isFinished: false,
-}
+};
 
 export function Quiz({ quiz }: { quiz: QuizDetail }) {
   const [state, setState] = useState<QuizState>(initialState);
