@@ -8,6 +8,7 @@
 _This preview shows the main interface of Stack Quiz, featuring a modern design with dark and light themes._
 
 ## 📑 Table of Contents
+
 - [Overview](#-overview)
 - [Features](#-features)
 - [Technologies Used](#-technologies-used)
@@ -17,12 +18,15 @@ _This preview shows the main interface of Stack Quiz, featuring a modern design 
 - [Attribution](#attribution)
 
 ## 💻 Overview
+
 Stack Quiz is an interactive quiz application designed to test and improve your knowledge in various technology-related subjects. Built using modern frontend technologies, this project provides an engaging and responsive experience across all devices.
 
 This is a solution to the [Frontend quiz app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/frontend-quiz-app-BE7xkzXQnU). Frontend Mentor challenges help you enhance your coding skills by working on real-world projects.
 
 ## ✅ Features
+
 Stack Quiz offers a variety of features to enhance user engagement and accessibility:
+
 - 📝 Select a quiz subject.
 - 🎯 Choose the correct answer from multiple-choice options.
 - 🚫 Receive error messages for incomplete submissions.
@@ -36,6 +40,7 @@ Stack Quiz offers a variety of features to enhance user engagement and accessibi
 - 🌙 Toggle between light and dark themes.
 
 ## 🛠 Technologies Used
+
 - **Framework**: Next.js (Canary)
 - **ORM**: Prisma
 - **Database**: PostgreSQL
@@ -44,36 +49,43 @@ Stack Quiz offers a variety of features to enhance user engagement and accessibi
 - **Deployment**: Vercel
 
 ## 🌐 Live Demo
+
 Check out the live version of the app here: [Stack Quiz Demo](https://stack-quiz.vercel.app)
 
 ## 👉 Run Project
 
 ### Prerequisites
+
 Ensure you have the following installed on your system:
+
 - Node.js (LTS version recommended)
 - pnpm
 
 #### Setup and Run
+
 1. Clone the Repository
-    ```bash
-    $ git clone https://github.com/KassiaMabily/stack-quiz
-    $ cd stack-quiz
-    ```
+
+   ```bash
+   $ git clone https://github.com/KassiaMabily/stack-quiz
+   $ cd stack-quiz
+   ```
 
 2. Environment Variables
-    ```bash
-    $ cp .env.example .env
-    ```
+
+   ```bash
+   $ cp .env.example .env
+   ```
 
 3. Install Dependencies
-    ```bash
-    $ pnpm install
-    ```
+
+   ```bash
+   $ pnpm install
+   ```
 
 4. Run the App
-    ```bash
-    $ pnpm dev
-    ```
+   ```bash
+   $ pnpm dev
+   ```
 
 ## 👥 Author
 
@@ -82,8 +94,10 @@ Ensure you have the following installed on your system:
 
 [![Instagram Badge](https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/kassia.mabily/)
 [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kassia-fraga/)
+
 </div>
 
 ## Attribution
+
 - [Frontend Mentor](https://www.frontendmentor.io/challenges)
 - [Icons made by meaicon](https://www.flaticon.com/authors/meaicon)
