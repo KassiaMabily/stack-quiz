@@ -1,65 +1,79 @@
 <div align="center">
     <img src=".github/logo.png" alt="Stack quiz logo" height="50" width="50" />
-    <h1>Stack quiz</h1>
+    <h1>Stack Quiz - Test Your Knowledge</h1>
 </div>
 
-<img src=".github/preview.jpg" alt="Stack Quiz" />
+<img src=".github/preview.jpg" alt="Preview of the Stack Quiz app" />
+
+_This preview shows the main interface of Stack Quiz, featuring a modern design with dark and light themes._
+
+## 📑 Table of Contents
+- [Overview](#-overview)
+- [Features](#-features)
+- [Technologies Used](#-technologies-used)
+- [Run Project](#-run-project)
+- [Live Demo](#-live-demo)
+- [Author](#-author)
+- [Attribution](#attribution)
 
 ## 💻 Overview
-A quiz application that allows you to test your knowledge in technology.
+Stack Quiz is an interactive quiz application designed to test and improve your knowledge in various technology-related subjects. Built using modern frontend technologies, this project provides an engaging and responsive experience across all devices.
 
-This is a solution to the [Frontend quiz app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/frontend-quiz-app-BE7xkzXQnU). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
-
+This is a solution to the [Frontend quiz app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/frontend-quiz-app-BE7xkzXQnU). Frontend Mentor challenges help you enhance your coding skills by working on real-world projects.
 
 ## ✅ Features
+Stack Quiz offers a variety of features to enhance user engagement and accessibility:
+- 📝 Select a quiz subject.
+- 🎯 Choose the correct answer from multiple-choice options.
+- 🚫 Receive error messages for incomplete submissions.
+- ✔ Get instant feedback on your answers.
+- 👉 Navigate seamlessly to the next question.
+- 🎉 View your final score upon quiz completion.
+- 🔁 Restart the quiz to select another topic.
+- 📱 Enjoy a fully responsive design across all devices.
+- 👀 Experience smooth hover and focus states.
+- 🎮 Use the app entirely via keyboard navigation.
+- 🌙 Toggle between light and dark themes.
 
-- [x] 📝 Select a quiz subject
-- [x] 🎯 Select a single answer from each question from a choice of four
-- [x] 🚫 See an error message when trying to submit an answer without making a selection
-- [x] ✔  See if they have made a correct or incorrect choice when they submit an answer
-- [x] 👉 Move on to the next question after seeing the question result
-- [x] 🎉 See a completed state with the score after the final question
-- [x] 🔁 Play again to choose another subject
-- [x] 📱 View the optimal layout for the interface depending on their device's screen size
-- [x] 👀 See hover and focus states for all interactive elements on the page
-- [x] 🎮 Navigate the entire app only using their keyboard
-- [x] 🌙 Change the app's theme between light and dark
+## 🛠 Technologies Used
+- **Framework**: Next.js (Canary)
+- **ORM**: Prisma
+- **Database**: PostgreSQL
+- **Styling**: Tailwind CSS
+- **State Management**: Context API
+- **Deployment**: Vercel
 
-## 👉 Run project
+## 🌐 Live Demo
+Check out the live version of the app here: [Stack Quiz Demo](https://stack-quiz.vercel.app)
+
+## 👉 Run Project
 
 ### Prerequisites
-
 Ensure you have the following installed on your system:
-
 - Node.js (LTS version recommended)
 - pnpm
 
 #### Setup and Run
-
 1. Clone the Repository
-
-```bash
-$ git clone https://github.com/KassiaMabily/stack-quiz
-$ cd stack-quiz
-```
+    ```bash
+    $ git clone https://github.com/KassiaMabily/stack-quiz
+    $ cd stack-quiz
+    ```
 
 2. Environment Variables
-
-```bash
-$ cp .env.example .env
-```
+    ```bash
+    $ cp .env.example .env
+    ```
 
 3. Install Dependencies
-
-```bash
-$ pnpm install
-```
+    ```bash
+    $ pnpm install
+    ```
 
 4. Run the App
-
-```bash
-$ pnpm dev
-```
+    ```bash
+    $ pnpm dev
+    ```
 
 ## 👥 Author
 
@@ -68,10 +82,8 @@ $ pnpm dev
 
 [![Instagram Badge](https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/kassia.mabily/)
 [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kassia-fraga/)
-
 </div>
 
 ## Attribution
-
 - [Frontend Mentor](https://www.frontendmentor.io/challenges)
 - [Icons made by meaicon](https://www.flaticon.com/authors/meaicon)
