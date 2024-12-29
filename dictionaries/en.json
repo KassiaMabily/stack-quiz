@@ -14,7 +14,8 @@
     "finished": {
       "title": "Quiz completed",
       "description": "Your scored...",
-      "button": "Play again"
+      "button": "Play again",
+      "of": "out of"
     }
   }
 }

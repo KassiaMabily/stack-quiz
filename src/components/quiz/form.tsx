@@ -95,7 +95,7 @@ export function QuizForm({
       <div className="flex flex-col justify-between">
         <div className="flex flex-col space-y-3">
           <Text variant={'default'} className="italic">
-            {t('header.question')} {currentQuestion + 1} {t('header.of')}
+            {t('header.question')} {currentQuestion + 1} {t('header.of')}{' '}
             {quiz.totalQuestions}
           </Text>
           <Text variant={'headingM'}>
@@ -128,7 +128,7 @@ export function QuizForm({
 
         <Button type="submit" variant={'primary'} size={'lg'} className="py-5">
           <Button.Text variant={'bodyM'}>
-            {isSubmitted ? t('submit_answer') : t('submit_answer')}
+            {isSubmitted ? t('next_question') : t('submit_answer')}
           </Button.Text>
         </Button>
 

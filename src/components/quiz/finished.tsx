@@ -52,7 +52,9 @@ export function Finished({
               className="text-navy-grey dark:text-bluish"
               asChild
             >
-              <legend>out of {quiz.totalQuestions}</legend>
+              <legend>
+                {t('finished.of')} {quiz.totalQuestions}
+              </legend>
             </Text>
           </div>
         </div>

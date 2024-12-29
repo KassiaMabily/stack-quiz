@@ -14,7 +14,8 @@
     "finished": {
       "title": "Quiz concluído",
       "description": "Sua pontuação...",
-      "button": "Jogar novamente"
+      "button": "Jogar novamente",
+      "of": "de"
     }
   }
 }
