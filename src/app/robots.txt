@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: /sitemap.xml

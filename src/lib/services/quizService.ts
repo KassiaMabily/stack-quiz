@@ -25,6 +25,14 @@ export async function fetchAllQuizzes() {
     );
 }
 
+export async function fetchIdQuizzes() {
+  return await prisma.quiz.findMany().then((quizzes) =>
+    quizzes.map((quiz) => ({
+      id: quiz.id,
+    }))
+  );
+}
+
 export async function fetchQuizzesByLanguage(
   languageCode: string = 'en'
 ): Promise<Quiz[] | []> {

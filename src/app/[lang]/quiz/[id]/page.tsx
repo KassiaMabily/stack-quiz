@@ -17,6 +17,7 @@ export const dynamicParams = true;
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const id = (await params).id;
   const lang = (await params).lang;
+
   const quiz = await fetchQuiz(parseInt(id), lang);
 
   if (!quiz) {
@@ -24,8 +25,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: quiz.title,
+    title: 'Stack Quiz',
+    description: quiz.title,
     openGraph: {
+      title: 'Stack Quiz',
+      description: quiz.title,
       images: [{ url: quiz.icon }],
     },
   };
