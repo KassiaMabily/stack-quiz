@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     'test',
     'interactive',
   ],
-  authors: [{ name: 'Stack Quiz Team' }],
-  creator: 'Stack Quiz',
+  authors: [{ name: 'Kassia Fraga' }],
+  creator: 'Frontend Mentor',
   openGraph: {
     type: 'website',
     locale: 'en_US',
