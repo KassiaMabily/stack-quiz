@@ -3,8 +3,9 @@ import { QuizHeader } from '@/components/quiz/header';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { Locale } from '@/i18n/i18n-config';
 import { routing } from '@/i18n/routing';
-import { fetchAllQuizzes, fetchQuiz } from '@/lib/services/quizService';
+import { fetchQuiz } from '@/lib/services/quizService';
 import { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
 type Props = {
@@ -12,22 +13,6 @@ type Props = {
 };
 
 export const dynamicParams = true;
-
-export async function generateStaticParams() {
-  const locales = routing.locales;
-  const quizzes = await fetchAllQuizzes();
-
-  if (!quizzes) {
-    return [];
-  }
-
-  return quizzes
-    .filter((quiz) => locales.includes(quiz.locale as Locale))
-    .map((quiz) => ({
-      id: quiz.id.toString(),
-      lang: quiz.locale,
-    }));
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const id = (await params).id;
@@ -46,16 +31,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Page({ params }: Props) {
+export default async function QuizPage({ params }: Props) {
   const id = (await params).id;
   const lang = (await params).lang;
+
+  setRequestLocale(lang);
+
   const quiz = await fetchQuiz(parseInt(id), lang);
 
-  if (!routing.locales.includes(lang as Locale)) {
-    notFound();
-  }
-
-  if (!quiz) {
+  if (!routing.locales.includes(lang as Locale) || !quiz) {
     notFound();
   }
 
