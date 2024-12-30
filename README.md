@@ -1,3 +1,5 @@
+<meta name="google-site-verification" content="OedG6z_yBBZoAiK_HPHH0TFabf0beZEKxIwvZu5dXfg" />
+
 <div align="center">
     <img src=".github/logo.png" alt="Stack quiz logo" height="50" width="50" />
     <h1>Stack Quiz - Test Your Knowledge</h1>
